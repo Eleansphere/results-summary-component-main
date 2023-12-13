@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-:root{
+:root {
     /*PRIMARY */
     --lightRed: hsl(0, 100%, 67%);
     --orangeyYellow: hsl(39, 100%, 56%);
@@ -10,107 +10,162 @@
     --white: hsl(0, 0%, 100%);
     --paleBlue: hsl(221, 100%, 96%);
     --lightLavender: hsl(241, 100%, 89%);
---darkGrayBlue: hsl(224, 30%, 27%);
-/*GRADIENTS*/
---lightSlateBlue: hsl(252, 100%, 67%);
---lightRoyalBlue: hsl(241, 81%, 54%);
---violetBlueCircle: hsla(256, 72%, 46%, 0.5);
---persianBlueCircle: hsla(241, 72%, 46%, 0.6);
+    --darkGrayBlue: hsl(224, 30%, 27%);
+    /*GRADIENTS*/
+    --lightSlateBlue: hsl(252, 100%, 67%);
+    --lightRoyalBlue: hsl(241, 81%, 54%);
+    --violetBlueCircle: hsla(256, 72%, 46%, 0.5);
+    --persianBlueCircle: hsla(241, 72%, 46%, 0.6);
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
-.all-flex-center-row{
+/*Flex reusable classes*/
+
+.all-flex-center-row {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.all-flex-center-column{
+.all-flex-center-column {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 }
 
-body{
+/*Layout*/
+
+html{
+    font-size: 18px;
+}
+
+body {
     max-width: 1440px;
     min-height: 100vh;
     margin: 0 auto;
     background-color: var(--white);
-    font-size: 18px;   
 }
 
-main{
+main {
     display: grid;
     grid-template: 1fr/1fr 1fr;
-    max-width: 650px;
+    max-width: 700px;
     box-shadow: 10px 25px 44px -10px var(--lightLavender);
     border-radius: 1rem;
 }
 
-.left-side{
+.left-side {
     border-radius: 1rem;
     background-image: linear-gradient(var(--lightSlateBlue), var(--lightRoyalBlue));
-    padding: 1.6rem;
+    padding: 2rem;
     text-align: center;
 }
 
-.score-text{
+.score-text {
     border-radius: 50%;
     aspect-ratio: 1/1;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-image: linear-gradient(var(--violetBlueCircle), var(--persianBlueCircle));
-    
 }
 
-.big-score{
+.big-score {
     color: var(--white);
     font-weight: 900;
     font-size: 4rem;
 }
 
-.right-side{
+.right-side {
     justify-content: space-between;
     gap: 1rem;
     padding: 2.4rem;
 }
 
-button{
+.right-side>div:has(h2) {
+    width: 100%;
+}
+
+.left-side>h2 {
+    color: var(--lightLavender);
+}
+
+.small-score {
+    color: var(--lightLavender);
+}
+
+button {
     width: 100%;
     padding: .8rem 1.8rem;
     border-radius: 2rem;
     border: none;
     color: var(--white);
     background-color: var(--darkGrayBlue);
+    margin-top: .6rem;
 }
 
-.item-wrapper:nth-child(2){
+button:hover {
+    background-image: linear-gradient(var(--lightSlateBlue), var(--lightRoyalBlue));
+    cursor: pointer;
+}
+
+h1 {
+    color: var(--white);
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+p {
+    color: var(--lightLavender);
+}
+
+.score-value>span:nth-child(2) {
+    color: gray;
+    font-weight: 500;
+}
+
+.item-wrapper:nth-child(2) {
     background-color: hsla(0, 100%, 67%, 0.1);
 }
 
-.item-wrapper:nth-child(3){
+.item-wrapper:nth-child(2) p {
+    color: var(--lightRed);
+}
+
+.item-wrapper:nth-child(3) {
     background-color: hsla(39, 100%, 56%, 0.1);
 }
 
-.item-wrapper:nth-child(4){
+.item-wrapper:nth-child(3) p {
+    color: var(--orangeyYellow);
+}
+
+.item-wrapper:nth-child(4) {
     background-color: hsla(166, 100%, 37%, 0.1);
 }
 
-.item-wrapper:nth-child(5){
+.item-wrapper:nth-child(4) p {
+    color: var(--greenTeal);
+}
+
+.item-wrapper:nth-child(5) {
     background-color: hsla(234, 85%, 45%, 0.1);
 }
 
-.item-wrapper{
+.item-wrapper:nth-child(5) p {
+    color: var(--lightRoyalBlue);
+}
+
+.item-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -118,12 +173,25 @@ button{
     border-radius: .6rem;
 }
 
-.icon-text{
+.icon-text {
     display: flex;
     align-items: center;
     gap: .8rem
 }
 
-.score-value span{
+.score-value span {
     font-weight: 700;
+}
+
+/* Responsive */
+
+@media(max-width:600px) {
+    main {
+        grid-template: 1fr 1fr/1fr;
+        border-radius: 0;
+    }
+
+    .left-side {
+        border-radius: 0 0 2rem 2rem;
+    }
 }
